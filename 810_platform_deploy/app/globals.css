@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: var(--bg);
+  --color-ink: var(--ink);
+  --color-panel: var(--panel);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+}
+
+@layer base {
+  :root {
+    --bg: #ffffff;
+    --ink: #000000;
+    --panel: #f5f5f5;
+    --border: #e5e5e5;
+    --muted: #737373;
+    --accent: #DFFF00;
+    --success: #16a34a;
+    --danger: #dc2626;
+    --warning: #d97706;
+  }
+
+  .dark {
+    --bg: #000000;
+    --ink: #ffffff;
+    --panel: #111111;
+    --border: #333333;
+    --muted: #a3a3a3;
+    --accent: #DFFF00;
+    --success: #22c55e;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+  }
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html:not(.dark) .bg-accent {
+  outline: 1px solid #000000;
+  outline-offset: -1px;
+}
+
+html:not(.dark) .text-accent,
+html:not(.dark) .hover\:text-accent:hover,
+html:not(.dark) .group:hover .group-hover\:text-accent {
+  -webkit-text-stroke: 0.5px #000000;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+}
+
+html:not(.dark) .text-accent svg,
+html:not(.dark) .hover\:text-accent:hover svg,
+html:not(.dark) .group:hover .group-hover\:text-accent svg {
+  filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.2));
+}
+
+html:not(.dark) .border-accent,
+html:not(.dark) .hover\:border-accent:hover,
+html:not(.dark) .focus\:border-accent:focus {
+  border-color: var(--accent);
+  outline: 1px solid #000000;
+  outline-offset: 0px;
+}
+
+html:not(.dark) .accent-accent {
+  outline: 1px solid #000000;
+}
